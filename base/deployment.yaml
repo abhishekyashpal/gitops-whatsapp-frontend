@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whatsapp-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: whatsapp-frontend
+  template:
+    metadata:
+      labels:
+        app: whatsapp-frontend
+    spec:
+      containers:
+      - name: whatsapp-frontend
+        image: developerkingabhi/whatsapp-frontend:latest  # ← Your public image here
+        ports:
+        - containerPort: 3000  # ← Change to your app's port
+        env:
+        - name: NODE_ENV
+          value: "production"
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 5
