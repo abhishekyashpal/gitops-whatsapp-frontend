@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/abhishekyashpal/gitops-whatsapp-fronted.git
+    repoURL: https://github.com/abhishekyashpal/gitops-whatsapp-frontend.git
     targetRevision: HEAD
     path: apps/production
   destination:
