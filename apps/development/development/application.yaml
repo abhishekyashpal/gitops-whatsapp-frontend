@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: whatsapp-frontend-production
+  name: whatsapp-frontend-development
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/abhishekyashpal/gitops-whatsapp-frontend.git
     targetRevision: HEAD
-    path: apps/production
+    path: apps/development
   destination:
     server: https://kubernetes.default.svc
-    namespace: production
+    namespace: development
   syncPolicy:
     automated:
       selfHeal: true
