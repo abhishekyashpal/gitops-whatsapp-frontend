@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: whatsapp-frontend
-        image: developerkingabhi/whatsapp-frontend:latest  # ← Your public image here
+        image: developerkingabhi/whatsapp-frontend:8ac53588659263d935752a9b0d7d038326cb958f  # ← Your public image here
         ports:
         - containerPort: 3000  # ← Change to your app's port
         env:
